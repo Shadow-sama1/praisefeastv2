@@ -189,7 +189,7 @@ export default function Home() {
               </h1>
 
               <p className="mt-6 max-w-xl text-base text-[#e8d7ef] sm:text-lg">
-                A vibrant gathering of worship, fellowship, and revival, hosted by Gift Godwin Mordi and a host of ministers in praise, truth, and grace.
+                A vibrant gathering, hosted by Gift Godwin Mordi, and designed to restore, refresh, and unite believers across generations for a day of blessing, fellowship, and renewed strength.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -259,13 +259,13 @@ export default function Home() {
 
             <div className="space-y-6 text-base leading-8 text-[#eadff4]">
               <p>
-                Praise Feast 2.0 is a gathering where worship meets community and every heart is invited to encounter the grace of God in a meaningful way.
+                Praise Feast 2.0 is a gathering where worship meets community and every heart is invited to encounter the grace of God in a meaningful way. 
               </p>
               <p>
-                Under the leadership of Gift Godwin Mordi, this experience is designed to restore, refresh, and unite believers across generations for a day of blessing, fellowship, and renewed strength.
+                Gift Godwin Mordi is the founder of Life Bloom City Initiative - a foundation dedicated to assisting children who are at risk of leaving school due to unpaid school fees by providing financial support toward their education.
               </p>
               <p>
-                We believe every moment here will be filled with songs of gratitude, prophetic encouragement, and tangible love that makes room for all who come.
+                Under the leadership of Gift Godwin Mordi, this experience is designed to refresh and unite believers across generations for a day of fellowship.
               </p>
             </div>
           </div>
@@ -277,7 +277,7 @@ export default function Home() {
               <p className="text-sm uppercase tracking-[0.25em] text-[#d7bfd5]">Save the date</p>
               <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">Praise Feast 2.0 event flyer</h2>
               <p className="mt-4 max-w-lg text-base leading-7 text-[#e7d8ef]">
-                Use this space for the official event poster, invitation graphic, or high-impact promo image for social sharing.
+                This is the official flyer for Praise Feast 2.0, highlighting the event's theme, date, and venue. Share it with friends and family to spread the word about this special gathering.
               </p>
               <a
                 href="#register"
