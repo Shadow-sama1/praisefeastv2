@@ -1,0 +1,19 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D1B3A"/>
+      <stop offset="1" stop-color="#120C1D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="127" y1="161" x2="640" y2="892" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C767"/>
+      <stop offset="1" stop-color="#D4A24D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <circle cx="400" cy="350" r="180" fill="url(#gold)" fill-opacity="0.22"/>
+  <circle cx="400" cy="350" r="120" fill="url(#gold)" fill-opacity="0.9"/>
+  <path d="M330 540C330 510.118 354.118 486 384 486H416C445.882 486 470 510.118 470 540V620H330V540Z" fill="#F7E7C7" fill-opacity="0.8"/>
+  <rect x="205" y="635" width="390" height="180" rx="48" fill="#F7E7C7" fill-opacity="0.12"/>
+  <text x="400" y="750" text-anchor="middle" fill="#F7E7C7" font-family="Arial, sans-serif" font-weight="700" font-size="44">HOST PHOTO</text>
+  <text x="400" y="800" text-anchor="middle" fill="#D9C3E4" font-family="Arial, sans-serif" font-size="22">Replace with event host image</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="1200" height="1400" viewBox="0 0 1200 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="1400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D1230"/>
+      <stop offset="1" stop-color="#120C1D"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1200" y2="1400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C767"/>
+      <stop offset="1" stop-color="#D4A24D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#bg)"/>
+  <circle cx="175" cy="200" r="170" fill="#D4A24D" fill-opacity="0.2"/>
+  <circle cx="1030" cy="1230" r="200" fill="#8A1F5C" fill-opacity="0.22"/>
+  <rect x="110" y="110" width="980" height="1170" rx="48" fill="#20142F" stroke="#F0C767" stroke-opacity="0.35"/>
+  <text x="600" y="290" text-anchor="middle" fill="#F0C767" font-family="Arial, sans-serif" font-size="42" letter-spacing="7">PRAISE FEAST 2.0</text>
+  <text x="600" y="430" text-anchor="middle" fill="#F7E7C7" font-family="Arial, sans-serif" font-weight="700" font-size="108">FEAST &amp; FELLOWSHIP</text>
+  <text x="600" y="515" text-anchor="middle" fill="#D9C3E4" font-family="Arial, sans-serif" font-size="34">Saturday, 19th September 2026</text>
+  <rect x="240" y="610" width="720" height="230" rx="30" fill="url(#gold)" fill-opacity="0.16"/>
+  <text x="600" y="690" text-anchor="middle" fill="#F7E7C7" font-family="Arial, sans-serif" font-size="40">HOSTED BY</text>
+  <text x="600" y="755" text-anchor="middle" fill="#F0C767" font-family="Arial, sans-serif" font-weight="700" font-size="62">Gift Godwin Mordi</text>
+  <text x="600" y="920" text-anchor="middle" fill="#D9C3E4" font-family="Arial, sans-serif" font-size="34">Swiss Hotel • VGC Lekki • Lagos</text>
+  <text x="600" y="1010" text-anchor="middle" fill="#F7E7C7" font-family="Arial, sans-serif" font-size="30">Worship • Fellowship • Revival</text>
+  <rect x="430" y="1080" width="340" height="88" rx="44" fill="#F0C767"/>
+  <text x="600" y="1138" text-anchor="middle" fill="#1B1120" font-family="Arial, sans-serif" font-weight="700" font-size="34">REGISTER NOW</text>
+</svg>

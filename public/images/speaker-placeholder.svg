@@ -1,0 +1,18 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="100" y1="0" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A1C3A"/>
+      <stop offset="1" stop-color="#140D21"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="180" y1="180" x2="690" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0C767"/>
+      <stop offset="1" stop-color="#D4A24D"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#bg)"/>
+  <circle cx="450" cy="360" r="170" fill="url(#gold)" fill-opacity="0.8"/>
+  <circle cx="450" cy="320" r="88" fill="#F7E7C7" fill-opacity="0.9"/>
+  <path d="M325 560C325 500.93 373.93 452 433 452H467C526.07 452 575 500.93 575 560V610H325V560Z" fill="#F7E7C7" fill-opacity="0.8"/>
+  <rect x="210" y="680" width="480" height="110" rx="32" fill="#F7E7C7" fill-opacity="0.08"/>
+  <text x="450" y="745" text-anchor="middle" fill="#F7E7C7" font-family="Arial, sans-serif" font-weight="700" font-size="34">SPEAKER PHOTO</text>
+</svg>
