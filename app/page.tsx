@@ -171,6 +171,7 @@ export default function Home() {
             <a href="#speakers" className="transition hover:text-[#f0c767]">Speakers</a>
             <a href="#details" className="transition hover:text-[#f0c767]">Details</a>
             <a href="#register" className="transition hover:text-[#f0c767]">Register</a>
+            <a href="/admin" className="transition hover:text-[#f0c767]">Admin</a>
           </nav>
         </div>
       </header>
