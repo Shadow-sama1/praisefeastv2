@@ -48,6 +48,7 @@ export default function AdminPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [registrations, setRegistrations] = useState<RegistrationRow[]>([]);
+  const [setupMessage, setSetupMessage] = useState("");
 
   async function fetchRegistrations() {
     setIsLoading(true);
@@ -77,6 +78,35 @@ export default function AdminPage() {
   function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     void fetchRegistrations();
+  }
+
+  async function handleSetupDatabase() {
+    setIsLoading(true);
+    setError("");
+    setSetupMessage("");
+
+    try {
+      const response = await fetch("/api/admin/setup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || "Failed to set up the database.");
+      }
+
+      setSetupMessage(payload.message || "Supabase table is ready.");
+      await fetchRegistrations();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to set up the database.");
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function handleExport() {
@@ -144,13 +174,30 @@ export default function AdminPage() {
                 </div>
               ) : null}
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full rounded-full bg-[#d4a24d] px-5 py-3 text-sm font-bold text-[#1b1120] transition hover:bg-[#f0c767] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {isLoading ? "Checking access..." : "Open dashboard"}
-              </button>
+              {setupMessage ? (
+                <div className="rounded-2xl border border-emerald-500/50 bg-emerald-500/10 p-3 text-sm text-emerald-200">
+                  {setupMessage}
+                </div>
+              ) : null}
+
+              <div className="flex gap-3">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="flex-1 rounded-full bg-[#d4a24d] px-5 py-3 text-sm font-bold text-[#1b1120] transition hover:bg-[#f0c767] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isLoading ? "Checking access..." : "Open dashboard"}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleSetupDatabase}
+                  disabled={isLoading || !password}
+                  className="rounded-full border border-[#f0c767]/40 bg-white/5 px-4 py-3 text-sm font-bold text-[#f7d98d] transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Setup DB
+                </button>
+              </div>
             </form>
           </div>
         ) : (
@@ -161,16 +208,30 @@ export default function AdminPage() {
                 <div className="mt-2 text-2xl font-bold text-white">
                   {registrations.length} registration{registrations.length === 1 ? "" : "s"}
                 </div>
+                {setupMessage ? (
+                  <div className="mt-2 text-sm text-emerald-200">{setupMessage}</div>
+                ) : null}
               </div>
 
-              <button
-                type="button"
-                onClick={handleExport}
-                disabled={!registrations.length}
-                className="rounded-full bg-[#d4a24d] px-5 py-3 text-sm font-bold text-[#1b1120] transition hover:bg-[#f0c767] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                Export CSV
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  type="button"
+                  onClick={handleSetupDatabase}
+                  disabled={isLoading}
+                  className="rounded-full border border-[#f0c767]/40 bg-white/5 px-4 py-3 text-sm font-bold text-[#f7d98d] transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  Setup DB
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleExport}
+                  disabled={!registrations.length}
+                  className="rounded-full bg-[#d4a24d] px-5 py-3 text-sm font-bold text-[#1b1120] transition hover:bg-[#f0c767] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  Export CSV
+                </button>
+              </div>
             </div>
 
             <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#1c1329]/90 shadow-[0_24px_80px_rgba(16,9,25,0.45)]">

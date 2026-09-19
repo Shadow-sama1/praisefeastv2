@@ -21,12 +21,31 @@ function getInMemoryRegistrations() {
   return globalThis.__praiseFeastRegistrations;
 }
 
-async function getRegistrations(): Promise<RegistrationRecord[]> {
+function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  if (supabaseUrl && supabaseKey) {
-    const supabase = createClient(supabaseUrl, supabaseKey);
+  if (supabaseUrl && serviceRoleKey) {
+    return createClient(supabaseUrl, serviceRoleKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    });
+  }
+
+  if (supabaseUrl && anonKey) {
+    return createClient(supabaseUrl, anonKey);
+  }
+
+  return null;
+}
+
+async function getRegistrations(): Promise<RegistrationRecord[]> {
+  const supabase = getSupabaseClient();
+
+  if (supabase) {
     const { data, error } = await supabase
       .from("registrations")
       .select("*")

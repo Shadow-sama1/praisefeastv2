@@ -111,15 +111,33 @@ async function sendWhatsAppConfirmation(phoneNumber: string) {
   }
 }
 
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && serviceRoleKey) {
+    return createClient(supabaseUrl, serviceRoleKey, {
+      auth: {
+        persistSession: false,
+        autoRefreshToken: false,
+      },
+    });
+  }
+
+  if (supabaseUrl && anonKey) {
+    return createClient(supabaseUrl, anonKey);
+  }
+
+  return null;
+}
+
 async function registrationExists(phoneNumber: string) {
   const normalized = normalizeNigerianPhoneNumber(phoneNumber);
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabase = getSupabaseClient();
 
-  if (supabaseUrl && supabaseKey) {
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
+  if (supabase) {
     const { data, error } = await supabase
       .from("registrations")
       .select("id, phone_number")
@@ -174,11 +192,9 @@ export async function POST(request: NextRequest) {
       created_at: new Date().toISOString(),
     };
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabase = getSupabaseClient();
 
-    if (supabaseUrl && supabaseKey) {
-      const supabase = createClient(supabaseUrl, supabaseKey);
+    if (supabase) {
       const { error } = await supabase.from("registrations").insert([
         {
           id: newRecord.id,
